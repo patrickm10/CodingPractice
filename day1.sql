@@ -30,3 +30,12 @@ FROM department d
 JOIN employee e ON d.dept_id=e.dept_id
 GROUP BY d.dept_name
 ORDER BY total_employees DESC
+
+-- Show each department name with the average salary of its employees, ordered from highest average salary to lowest.
+SELECT  
+    d.dept_name,
+    ROUND(AVG(e.salary),2) AS avg_salary
+FROM employee e
+JOIN department d ON e.dept_id=d.dept_id
+GROUP BY d.dept_name
+ORDER BY avg_salary DESC
