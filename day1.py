@@ -9,3 +9,13 @@ sports = ["Soccer", "Golf", "Basketball", "Volleyball", "Baseball"]
 word_lengths = {sport: len(sport) for sport in sports}
 
 print(f"\n{word_lengths}\n")
+
+# Write a function is_palindrome(s) ignoring case and spaces
+def is_palindrome(word):
+    print(f"\n{word}")
+    cleaned = word.replace(" ", "").lower()
+    print(cleaned[::-1])
+    return cleaned == cleaned[::-1]
+
+print(is_palindrome("racecar"))
+print(is_palindrome("Thunderstorm"))
