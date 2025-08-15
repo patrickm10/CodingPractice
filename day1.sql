@@ -22,3 +22,11 @@ SELECT e.id, e.name, e.salary, d.dept_name
 FROM employee e
 JOIN department d ON e.dept_id=d.dept_id
 WHERE e.hire_date >= '2022-01-01'
+
+-- Show each department name and the total number of employees in it.
+SELECT d.dept_name,
+COUNT(e.name) AS total_employees
+FROM department d
+JOIN employee e ON d.dept_id=e.dept_id
+GROUP BY d.dept_name
+ORDER BY total_employees DESC
