@@ -16,3 +16,9 @@ FROM employee e
 JOIN department d ON e.dept_id=d.dept_id
 ORDER BY e.salary DESC
 LIMIT 5
+
+-- List all employees hired on or after January 1, 2022, along with their department name, ordered by hire date ascending.
+SELECT e.id, e.name, e.salary, d.dept_name
+FROM employee e
+JOIN department d ON e.dept_id=d.dept_id
+WHERE e.hire_date >= '2022-01-01'
