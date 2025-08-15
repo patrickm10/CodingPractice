@@ -39,3 +39,15 @@ FROM employee e
 JOIN department d ON e.dept_id=d.dept_id
 GROUP BY d.dept_name
 ORDER BY avg_salary DESC
+
+-- Show each department name, the total number of employees, and the average salary, but only include departments with more than 3 employees. 
+-- Order the results by average salary descending.
+SELECT  
+    d.dept_name,
+    AVG(e.salary) AS avg_salary,
+    COUNT(e.id) AS total_employees
+FROM employee e
+JOIN department d on e.dept_id=d.dept_id
+GROUP BY d.dept_name
+HAVING COUNT(e.id) > 3
+ORDER BY avg_salary DESC
