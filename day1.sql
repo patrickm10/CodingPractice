@@ -11,3 +11,8 @@ WHERE e.salary > (
 ORDER BY d.dept_name, e.salary DESC;
 
 -- List top 5 highest paid employees with department name
+SELECT e.name, e.salary, d.dept_name
+FROM employee e
+JOIN department d ON e.dept_id=d.dept_id
+ORDER BY e.salary DESC
+LIMIT 5
