@@ -54,3 +54,51 @@ while True:
 
 
 
+# Write a function that returns the minimum number in a list
+nums = [1,4,5,6,7,23,244,445,242]
+
+def min_number(lon) -> int:
+    """_summary_
+
+    Args:
+        lon (list): _description_
+
+    Returns:
+        int: _description_
+    """
+    return min(lon)
+
+print(min_number(nums))
+
+
+
+# Given a string, return it reversed without using slicing
+def reverse_string(s: str) -> str:
+    """_summary_
+
+    Args:
+        s (str): _description_
+
+    Returns:
+        str: _description_
+    """
+    return "".join(reversed(s))
+
+print(reverse_string("Ballers"))
+
+
+
+
+# Create a dict counting how many times each word appears in "to be or not to be"
+
+poem = "to be or not to be"
+words = poem.split()
+
+words_count = {}
+for word in words:
+    words_count[word] = words_count.get(word,0) + 1
+
+print(words_count)
+
+
+
