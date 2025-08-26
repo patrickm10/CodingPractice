@@ -36,3 +36,15 @@ FROM employee e
 JOIN department d ON e.dept_id=d.dept_id
 WHERE (d.dept_name = 'Finance' OR d.dept_name = 'Engineering')
 AND salary > 130000
+
+
+
+-- For each department, show the average salary only for employees with more than 5 years of experience (yoe > 5).
+SELECT
+    d.dept_name,
+    COUNT(*) AS dept_employees,
+    AVG(e.salary) as dept_salary,
+FROM department d
+JOIN employee e ON d.dept_id=e.dept_id
+WHERE e.yoe > 5
+GROUP BY d.dept_id, d.dept_name
