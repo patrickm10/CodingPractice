@@ -32,7 +32,8 @@ SELECT
     d.dept_name,
     SUM(e.salary) AS payroll,
     (SELECT SUM(e2.salary) AS company_payroll FROM employee e2) AS company_payroll,
-    (payroll / company_payroll) AS pct_dept_payroll
+    ROUND(SUM(e.salary) * 1.0 / (SELECT SUM(e2.salary) FROM employee e2),2) * 100 AS pct_dept_payroll
 FROM department d
 JOIN employee e ON d.dept_id=e.dept_id
 GROUP BY d.dept_name
+ORDER BY pct_dept_payroll DESC
